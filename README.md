@@ -38,21 +38,40 @@ The `pAequorFactory` function creates instances of P. aequor. It provides method
 
 ```javascript
 // Example Usage
-const { pAequorFactory, mockUpStrand } = require('./helperFunctions');
 
+// Test mutation
+console.log("Mutations:");
 const organism = pAequorFactory(1, mockUpStrand());
-console.log("Original DNA:", organism.dna);
-
-// Perform mutations
-organism.mutate();
 organism.mutate();
 
-// Compare DNA with another instance
-const otherOrganism = pAequorFactory(2, mockUpStrand());
-organism.compareDNA(otherOrganism);
+// Test compare DNA
+console.log("\nCompatibility:");
+const organism1 = pAequorFactory(1, mockUpStrand());
+const organism2 = pAequorFactory(2, mockUpStrand());
 
-// Assess likelihood of survival
-console.log("Survival Probability:", organism.willLikelySurvive());
+console.log(`Specimen #${organism1.specimenNum}, DNA: ${organism1.dna.join(',')}`);
+console.log(`Specimen #${organism2.specimenNum}, DNA: ${organism2.dna.join(',')}`);
+
+organism1.compareDNA(organism2);
+
+// Test survival
+console.log("\nSurvival:");
+const organism3 = pAequorFactory(2, mockUpStrand());
+
+const { percentageSurvive, survivalResult } = organism.willLikelySurvive();
+console.log(
+  `Specimen with DNA ${organism.dna.join(',')} has a ${
+    survivalResult ? "high" : "low"
+  } chance of survival.`
+);
+
+// Creating n instances of pAequor that can survive in their natural environment
+createPAequorInstances(30);
+
+// Complementary DNA strand
+console.log("\nComplementary DNA strand:");
+const organism4 = pAequorFactory(1, ["A", "T", "C", "G", "A"]);
+const complementedDNA = organism4.complementStrand();
 ```
 
 ## Contributing
