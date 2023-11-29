@@ -14,24 +14,6 @@ You are part of a research team that has discovered a new organism with unique D
 - Develop methods to compare DNA sequences between different organisms.
 - Assess the likelihood of survival based on the DNA composition.
 
-## Getting Started
-
-To run the project, make sure you have [Node.js](https://nodejs.org/) installed. Clone the repository and run the necessary scripts.
-
-```bash
-# Clone the repository
-git clone https://github.com/your-username/mysterious-organism.git
-
-# Navigate to the project directory
-cd mysterious-organism
-
-# Install dependencies
-npm install
-
-# Run the project
-npm start
-```
-
 ## Usage
 
 The `pAequorFactory` function creates instances of P. aequor. It provides methods to mutate DNA, compare DNA with other instances, and assess the likelihood of survival.
